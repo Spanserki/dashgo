@@ -1,5 +1,7 @@
+import {color, Text} from '@chakra-ui/react'
+
 export default function Home() {
   return (
-    <h1>Dashbord</h1>
+    <Text>Dashbord</Text>
   )
 }
