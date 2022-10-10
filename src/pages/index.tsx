@@ -1,4 +1,4 @@
-import {Button, Flex, Input, Stack} from '@chakra-ui/react'
+import {Button, Flex, Stack} from '@chakra-ui/react'
 import { Input as ChakraInput } from '../components/Form/input'
 
 export default function SignIn() {
@@ -10,7 +10,7 @@ export default function SignIn() {
       justify="center"
     >
         <Flex
-            as="form"
+            as="form" //Transforma a div em um formulario
             width="100%"
             maxWidth={450}
             bg="gray.800"
