@@ -1,10 +1,15 @@
-import { Avatar, Box, Flex, Text } from "@chakra-ui/react";
+import { Avatar, Box, Flex, Text, useBreakpoint, useBreakpointValue } from "@chakra-ui/react";
 
+interface ProfileProps {
+    showProfileData?: boolean;
+}
 
-export function Profile() {
+export function Profile({showProfileData} : ProfileProps) {
+
     return (
         <Flex align="center">
-            <Box mr="4" textAlign="right">
+            {showProfileData && (
+                <Box mr="4" textAlign="right">
                 <Text>Guilherme Spanserki</Text>
                 <Text
                     color="gray.300"
@@ -12,6 +17,8 @@ export function Profile() {
                 >
                 guilhermespanserkiohc@hotmail.com</Text>
             </Box>
+            )}
+            
 
             <Avatar size="md" name="Guilherme Spanserki" src="http://github.com/Spanserki.png" />
     </Flex>

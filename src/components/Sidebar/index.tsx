@@ -1,25 +1,36 @@
-import { Box, Stack } from "@chakra-ui/react"
-import { NavSection } from "../Sidebar/NavSection"
-import { NavLink } from "../Sidebar/NavLink"
-import { RiContactsLine, RiDashboardLine, RiGitMergeLine, RiInputMethodLine } from "react-icons/ri"
+import { Box, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, useBreakpointValue } from "@chakra-ui/react"
+import { useSideBarDrawer } from "../../contexts/SideBarDrawerContext"
+import { SideBarNav } from "./SideBarNav"
 
 export function SideBar() {
+    const {isOpen, onClose} = useSideBarDrawer();
+
+    const isDrawerSideBar = useBreakpointValue({
+        base: true,
+        lg: false,
+    })
+
+    if (isDrawerSideBar) {
+        return (
+            <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
+            <DrawerOverlay> {/*Deixa a tela mais escura ao abrir a SideBar*/}
+                <DrawerContent bg='gray.800' p='4'> {/*Conteudo da SideBar*/}
+                    <DrawerCloseButton mt='6'/> {/*Botão para fechar a SideBar*/}
+                    <DrawerHeader>Navegação</DrawerHeader>
+
+                    <DrawerBody>
+                        <SideBarNav />
+                    </DrawerBody>
+                </DrawerContent>
+            </DrawerOverlay>
+        </Drawer>
+        )
+        
+    }
+
     return (
         <Box as='aside' w='64' mr='8'>
-            <Stack spacing='12' align='flex-start'>
-                <NavSection title="GERAL">
-                    <NavLink icon={RiDashboardLine} title='Dashboard' href="/dashboard"/>
-
-                    <NavLink icon={RiContactsLine} title='Usuários' href="/users"/>
-                </NavSection>
-
-                
-                <NavSection title="AUTOMAÇÂO">
-                    <NavLink icon={RiInputMethodLine} title='Formulários' href="/"/>
-
-                    <NavLink icon={RiGitMergeLine} title='Automação' href="/"/>
-                </NavSection>
-            </Stack>
+            <SideBarNav />
         </Box>
     )
 }

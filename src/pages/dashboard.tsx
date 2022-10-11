@@ -52,9 +52,21 @@ const options: any = {
     }
 };
 
-const series = [
+const InscritosSemana = [
     {name: 'series1', data: [31, 120, 18, 22, 35, 40]}
 ];
+
+const TaxaAbertura = [
+    {name: 'series2', data: [20, 20, 40, 50 ,70, 10]}
+]
+
+const MediaDia = [
+    {name: 'series3', data: [8, 4, 9, 3, 1, 0]}
+]
+
+const TotalInscricao = [
+    {name: 'TOTAL', data: [484]}
+]
 
 export default function Dashboard() {
     return(
@@ -80,7 +92,7 @@ export default function Dashboard() {
                         h='100%'
                     >
                         <Text fontSize='lg' mb='4'>Inscritos da semana</Text>
-                        <Chart type="area" options={options} series={series} height={160}/>
+                        <Chart type="area" options={options} series={InscritosSemana} height={160}/>
                     </Box>
 
                     <Box
@@ -90,7 +102,27 @@ export default function Dashboard() {
                         h='100%'
                     >
                         <Text fontSize='lg' mb='4'>Taxa de abertura</Text>
-                        <Chart type="area" options={options} series={series} height={160}/>
+                        <Chart type="line" options={options} series={TaxaAbertura} height={160}/>
+                    </Box>
+
+                    <Box
+                        p='8'
+                        bg='gray.800'
+                        borderRadius={8}
+                        h='100%'
+                    >
+                        <Text fontSize='lg' mb='4'>Media por dia</Text>
+                        <Chart type="bar" options={options} series={MediaDia} height={160}/>
+                    </Box>
+
+                    <Box
+                        p='8'
+                        bg='gray.800'
+                        borderRadius={8}
+                        h='100%'
+                    >
+                        <Text fontSize='lg' mb='4'>Total de leads</Text>
+                        <Chart type="heatmap" options={options} series={TotalInscricao} height={160}/>
                     </Box>
                 </SimpleGrid>
             </Flex>
