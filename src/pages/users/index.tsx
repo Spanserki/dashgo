@@ -1,12 +1,15 @@
 import { Box, Button, Checkbox, Flex, Heading, Icon, Table, Tbody, Th, Thead, Tr, Td, Text } from "@chakra-ui/react"
+import Head from "next/head"
 import { RiAddLine, RiPencilLine } from "react-icons/ri"
 import { Header } from "../../components/Header"
 import { Pagination } from "../../components/Pagination"
-import { SideBar } from "../../components/SideBar"
+import { SideBar } from "../../components/Sidebar"
 
 export default function UserList() {
     return (
         <Box>
+            <Head><title>Usuários</title></Head>
+
             <Header />
 
             <Flex

@@ -1,12 +1,15 @@
 import { Box, Button, Divider, Flex, Heading, HStack, Icon, SimpleGrid, VStack } from "@chakra-ui/react"
+import Head from "next/head"
 import { RiAddLine, RiSaveLine } from "react-icons/ri"
 import { Input } from "../../components/Form/input"
 import { Header } from "../../components/Header"
-import { SideBar } from "../../components/SideBar"
+import { SideBar } from "../../components/Sidebar"
 
 export default function CreateUsers() {
     return (
         <Box>
+            <Head><title>Novo usuário</title></Head>
+            
             <Header />
 
             <Flex w='100%' my='6' maxWidth={1480} mx='auto' px='6'>
