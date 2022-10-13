@@ -44,7 +44,7 @@ export default function CreateUsers() {
                             </Button>
 
                             </Link>
-                            <Button leftIcon={<Icon as={RiSaveLine}/>} colorScheme='pink'>Salvar</Button>
+                            <Button leftIcon={<Icon as={RiSaveLine}/>} colorScheme='teal'>Salvar</Button>
                         </HStack>
                     </Flex>
                 </Box>

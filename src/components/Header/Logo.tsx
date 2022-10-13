@@ -12,7 +12,7 @@ export function Logo() {
             href="/"
     >
         DashGO
-        <Text as="span" color="pink.500" ml="1">.</Text>
+        <Text as="span" color="teal.200" ml="1">.</Text>
     </Text>
     )
 }

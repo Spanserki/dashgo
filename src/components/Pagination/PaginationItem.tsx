@@ -12,10 +12,10 @@ export function PaginationItem({IsCurrent = false, numberPage}: PaginationProps)
                 size='sm'
                 fontSize='xs'
                 width='4'
-                colorScheme='pink'
+                colorScheme='teal'
                 disabled
                 _disabled={{
-                    bgColor: 'pink.500',
+                    bgColor: 'teal.00',
                     cursor: 'default',
                 }}
             >

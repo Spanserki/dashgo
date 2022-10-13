@@ -32,7 +32,7 @@ export default function UserList() {
                             as='a'
                             size='sm' 
                             fontSize='sm' 
-                            colorScheme='pink'
+                            colorScheme='teal'
                             leftIcon={<Icon as={RiAddLine} fontSize='20'/>}
                             cursor='pointer'
                          >
