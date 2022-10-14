@@ -1,9 +1,8 @@
-import {Button, Flex, Heading, Image, Stack, Text} from '@chakra-ui/react'
+import {Button, Flex, Image, Stack, Text} from '@chakra-ui/react'
 import { Input as ChakraInput } from '../components/Form/input'
 import {useForm, SubmitHandler} from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { Logo } from '../components/Header/Logo'
 
 type SigninFormData = {
   email: string;
@@ -89,7 +88,7 @@ export default function SignIn() {
             isLoading={isSubmitting} 
             type='submit' 
             mt="6" 
-            colorScheme="teal" 
+            colorScheme="teal"
             size="lg"
           >Entrar</Button>
           
