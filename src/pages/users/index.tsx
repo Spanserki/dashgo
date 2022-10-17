@@ -1,33 +1,16 @@
-import { Box, Button, Checkbox, Flex, Heading, Icon, Table, Tbody, Th, Thead, Tr, Td, Text, Spinner } from "@chakra-ui/react"
+import { Box, Button, Checkbox, Flex, Heading, Icon, Table, Tbody, Th, Thead, Tr, Td, Text, Spinner, useRangeSlider } from "@chakra-ui/react"
 import Head from "next/head"
 import Link from "next/link"
+import { useState } from "react"
 import { RiAddLine, RiPencilLine } from "react-icons/ri"
 import { Header } from "../../components/Header"
 import { Pagination } from "../../components/Pagination"
 import { SideBar } from "../../components/Sidebar"
-import { useQuery } from "react-query"
-import { api } from "../../services/mirage/api"
+import { useUsers } from "../../services/hooks/useUsers"
 
 export default function UserList() {
-    const {data, isLoading, error, isFetching} = useQuery('users', async () => {
-
-        const {data} = await api('users');
-
-        const users = data.users.map(user => {
-            return {
-                id: user.id,
-                name: user.name,
-                email: user.email,
-                createAt: new Date(user.createAt).toLocaleDateString('pt-BR', {
-                    day: '2-digit',
-                    month: 'long',
-                    year: 'numeric',
-                })
-            }
-        })
-
-        return users;
-    });
+    const {data, isLoading, error, isFetching} = useUsers()
+    const [page, setPage] = useState(1)
 
     return (
         <Box>
@@ -127,7 +110,12 @@ export default function UserList() {
                         </Table>
                     </>
                     )}
-                        <Pagination />
+                        <Pagination 
+                            totalCountOfRegisters={200}
+                            currentPage={page}
+                            onPageChange={setPage}
+                            
+                        />
                 </Box>
             </Flex>
         </Box>
